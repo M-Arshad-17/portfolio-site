@@ -57,14 +57,14 @@ const Contact = () => {
             <ContactItem
               icon="💼"
               label="LinkedIn"
-              value="mohammed-arshad"
+              value="mohammed-arshad-12088915a"
               href={personal.linkedin}
               external
             />
             <ContactItem
               icon="🐙"
               label="GitHub"
-              value="github.com (add your handle)"
+              value="M-Arshad-17"
               href={personal.github}
               external
             />
