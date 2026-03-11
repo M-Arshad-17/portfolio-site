@@ -1,0 +1,182 @@
+/* ============================================================
+   globals.css
+   Base reset, CSS custom properties (design tokens),
+   typography, scroll behaviour, and utility classes.
+   ============================================================ */
+
+/* ---------- CSS Custom Properties (Design Tokens) ---------- */
+:root {
+  /* Color palette — dark mode default */
+  --bg-primary:    #0a0a0f;
+  --bg-secondary:  #111118;
+  --bg-card:       #16161f;
+  --bg-card-hover: #1c1c28;
+
+  --accent:        #6c63ff;        /* Electric violet */
+  --accent-light:  #9d97ff;
+  --accent-glow:   rgba(108, 99, 255, 0.18);
+
+  --text-primary:  #f0eff8;
+  --text-secondary:#a09db8;
+  --text-muted:    #5c5a72;
+
+  --border:        rgba(255,255,255,0.07);
+  --border-accent: rgba(108,99,255,0.4);
+
+  --shadow-sm:     0 2px 12px rgba(0,0,0,0.35);
+  --shadow-md:     0 8px 32px rgba(0,0,0,0.45);
+  --shadow-accent: 0 8px 40px rgba(108,99,255,0.2);
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+
+  --font-display: 'Syne', sans-serif;
+  --font-body:    'DM Sans', sans-serif;
+
+  --nav-height: 64px;
+  --max-width:  1120px;
+
+  --transition-fast:   150ms ease;
+  --transition-normal: 280ms cubic-bezier(0.4,0,0.2,1);
+  --transition-slow:   500ms cubic-bezier(0.4,0,0.2,1);
+}
+
+/* Light mode overrides */
+[data-theme="light"] {
+  --bg-primary:    #f8f7ff;
+  --bg-secondary:  #f0eeff;
+  --bg-card:       #ffffff;
+  --bg-card-hover: #f3f1ff;
+
+  --accent:        #5046e4;
+  --accent-light:  #7c72f5;
+  --accent-glow:   rgba(80,70,228,0.10);
+
+  --text-primary:  #0f0e1a;
+  --text-secondary:#4a4766;
+  --text-muted:    #9b99b4;
+
+  --border:        rgba(0,0,0,0.08);
+  --border-accent: rgba(80,70,228,0.35);
+
+  --shadow-sm:     0 2px 12px rgba(80,70,228,0.08);
+  --shadow-md:     0 8px 32px rgba(80,70,228,0.12);
+  --shadow-accent: 0 8px 40px rgba(80,70,228,0.18);
+}
+
+/* ---------- Reset & Base ---------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-weight: 400;
+  overflow-x: hidden;
+  transition: background-color var(--transition-slow), color var(--transition-slow);
+}
+
+/* ---------- Typography ---------- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+p { color: var(--text-secondary); }
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+a:hover { color: var(--accent-light); }
+
+img { max-width: 100%; display: block; }
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 3px;
+}
+
+/* ---------- Selection ---------- */
+::selection {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* ---------- Utility Classes ---------- */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: 96px 0;
+}
+
+.section-label {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+  display: block;
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  max-width: 560px;
+  line-height: 1.7;
+}
+
+/* Fade-in scroll animation base */
+.fade-in {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s cubic-bezier(0.4,0,0.2,1),
+              transform 0.65s cubic-bezier(0.4,0,0.2,1);
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delay helpers */
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+.delay-5 { transition-delay: 0.5s; }
+
+/* ---------- Responsive Breakpoints ---------- */
+/* Mobile  : <768px  */
+/* Tablet  : 768px – 1024px */
+/* Desktop : >1024px */

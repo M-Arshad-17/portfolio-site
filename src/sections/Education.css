@@ -1,0 +1,143 @@
+/* ============================================================
+   Education.css
+   Two-column layout: education + certifications.
+   ============================================================ */
+
+.education__layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  margin-top: 52px;
+  align-items: start;
+}
+
+/* ---------- Column title ---------- */
+.education__col-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.education__col-icon { font-size: 1.2rem; }
+
+/* ---------- Education cards ---------- */
+.edu__list { display: flex; flex-direction: column; gap: 14px; }
+
+.edu__card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  transition: background var(--transition-normal), border-color var(--transition-normal),
+              transform var(--transition-normal);
+}
+.edu__card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-accent);
+  transform: translateX(4px);
+}
+.edu__card--featured {
+  border-color: var(--border-accent);
+  background: var(--accent-glow);
+}
+
+.edu__icon {
+  font-size: 1.4rem;
+  width: 42px; height: 42px;
+  display: grid; place-items: center;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.edu__degree {
+  font-family: var(--font-display);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 3px;
+}
+
+.edu__field {
+  font-size: 0.82rem;
+  color: var(--accent-light);
+  margin-bottom: 4px;
+  font-style: italic;
+}
+
+.edu__institution {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+}
+
+.edu__period {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+/* ---------- Certification cards ---------- */
+.cert__list { display: flex; flex-direction: column; gap: 12px; }
+
+.cert__card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  transition: background var(--transition-normal), border-color var(--transition-normal),
+              transform var(--transition-normal);
+}
+.cert__card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-accent);
+  transform: translateX(4px);
+}
+
+.cert__icon {
+  font-size: 1.4rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.cert__title {
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 3px;
+  line-height: 1.3;
+}
+
+.cert__issuer {
+  font-size: 0.76rem;
+  color: var(--accent);
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.cert__desc {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .education__layout { grid-template-columns: 1fr; gap: 48px; }
+}
